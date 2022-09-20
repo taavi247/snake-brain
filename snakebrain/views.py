@@ -1,13 +1,16 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.core.exceptions import PermissionDenied
+from .models import SnakeState
 
 def control(request):
 	pass
 
-def readstate(request):
-	if request.POST:
-		snakeLocation = request.POST['snakeLocation']
-		itemLocation = request.POST['itemLocation']
-		snakeState = SnakeState(snakeLocation, itemLocation)
-		snakeState.save()
+def movesnake(request):
+	if request.method == 'POST':
+		jsondata = request.read().decode()
+		SnakeState(StateJSON=jsondata).save()
+
+		return HttpResponse("Success");
 	else:
 		raise PermissionDenied
