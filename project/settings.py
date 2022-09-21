@@ -58,11 +58,12 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:3000',
 ]
-CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
-]
-CORS_ALLOW_CREDENTIALS = True
+
+#CSRF_TRUSTED_ORIGINS = [
+#    'http://127.0.0.1:3000',
+#    'http://localhost:3000',
+#]
+#CORS_ALLOW_CREDENTIALS = True
 
 TEMPLATES = [
     {
@@ -88,8 +89,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db_snakebrain',
+        'USER': 'snakefeeder',
+        'PASSWORD': 'djangoproject',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -118,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EET'
 
 USE_I18N = True
 
