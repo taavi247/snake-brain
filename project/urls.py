@@ -19,6 +19,5 @@ from snakebrain import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/control', views.control, name='control'),
     path('api/movesnake', views.movesnake, name='movesnake'),
 ]

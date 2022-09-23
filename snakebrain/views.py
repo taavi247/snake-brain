@@ -2,16 +2,21 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
 from .models import SnakeState
+from enum import Enum
+import random
 import json
 
-def control(request):
-	pass
+class SnakeDirection(Enum):
+	ArrowUp = 0
+	ArrowDown = 1
+	ArrowLeft = 2
+	ArrowRight = 3
 
 def movesnake(request):
 	if request.method == 'POST':
 		jsondata = request.read().decode()
 		jsondata_loaded = json.loads(jsondata, parse_int=int)
-		print(jsondata_loaded['snakeBody'])
+		
 		SnakeState(
 			gameid = jsondata_loaded['gameID'],
 			orderid = jsondata_loaded['orderID'],
@@ -21,6 +26,12 @@ def movesnake(request):
 			scissors = jsondata_loaded['scissors'],
 		).save()
 
-		return HttpResponse("Success");
+		snakeDirection = SnakeDirection(random.randint(0, 3)).name
+
+		jsonresponse = json.dumps({ "snakeDirection": snakeDirection })
+		
+		return HttpResponse(
+			jsonresponse, 
+			content_type='application/json');
 	else:
 		raise PermissionDenied
