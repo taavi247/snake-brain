@@ -75,7 +75,7 @@ class SnakeAgent(object):
 		next_state = np.zeros(self.input_dim)
 		next_state_object = SnakeState.objects.filter(
 			game_id=random_object.game_id,
-			order_id=random_object.order_id)
+			order_id=random_object.order_id + 1)
 
 		reward = 0
 		done = True
