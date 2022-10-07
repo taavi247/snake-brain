@@ -14,11 +14,11 @@ Python 3.8.10<br/>
 
 Step 1:
 
-Create directory and clone the project. Python and pip are required. Also virtual environment recommended. You can create and activate one using commands
+Create directory and clone the project. Python and pip are required. Also virtual environment is recommended. You can create and activate one using commands
 
 ```
-python -m venv .your-venv
-source .your-vent/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 Step 2: Inside the folder __snake-brain__ run following to install dependencies
