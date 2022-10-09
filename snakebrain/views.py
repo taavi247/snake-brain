@@ -6,6 +6,7 @@ from snakebrain import globalvariables
 from enum import Enum
 import random
 import json
+import numpy as np
 
 class SnakeDirection(Enum):
 	ArrowUp = 0
@@ -38,7 +39,14 @@ def movesnake(request):
 			content_type='text/html'
 		);
 
-		snake_action = globalvariables.snakenetwork.get_action()
+		current_state = np.zeros(30 * 30)
+		current_state[jsondata_loaded['apples']] = 1
+		current_state[jsondata_loaded['scissors']] = 2
+		current_state[jsondata_loaded['walls']] = 3
+		current_state[jsondata_loaded['snakeHead']] = 4
+		current_state[jsondata_loaded['snakeBody']] = 5
+
+		snake_action = globalvariables.snakenetwork.get_action(current_state)
 		snake_direction = SnakeDirection(snake_action).name
 
 		SnakeState(
