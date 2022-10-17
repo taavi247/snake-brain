@@ -1,4 +1,4 @@
 from snakebrain import snakenetworkdqn
 
-# Actor-Critic reinforcement learning
+# DQN reinforcement learning
 snakenetwork = snakenetworkdqn.SnakeNetwork()
