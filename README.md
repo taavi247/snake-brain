@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a back end part to a snake game variant Feed the Snake (https://github.com/taavi247/feed-the-snake). Snake Brain is built on Django and it stores Feed the Snake states into PostgreSQL database and sends back corresponding data to control the snake. Game states in the database are used through reinforcement learning algorithm to teach neural network.
+This is a back end part to a snake game variant Feed the Snake (https://github.com/taaviok/feed-the-snake). Snake Brain is built on Django and it stores Feed the Snake states into PostgreSQL database and sends back corresponding data to control the snake. Game states in the database are used through reinforcement learning algorithm to teach neural network.
 
 This is a part of learning project on full stack (React, Django) and machine learning (Pytorch). Django was chosen for back end because language compatibility with Pytorch.
 
